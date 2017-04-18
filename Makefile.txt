@@ -1,0 +1,12 @@
+all: game
+
+game: Game.o Match.o Cube.o Solver.o
+	g++ -o Game Game.o Match.o Solver.o Cube.o
+Game.o:
+	g++ -c Game.cpp
+Match.o:
+	g++ -c Match.cpp
+Solver.o:
+	g++ -c Solver.cpp
+cube.o:
+	g++ -c cube.cpp

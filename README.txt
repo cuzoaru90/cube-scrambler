@@ -1,0 +1,4 @@
+
+	This program can be run from the command line with the included Makefile. To test mystery words with large numbers of cubes, this program accepts an optional command line argument that reads a file, and generates cubes from each line of characters. Spaces are treated as characters. If you want the cube to have six non-space characters, don't include any spaces. If more than six characters are entered, only the first six are valid, and the situation is similar if there are less than six. The file "example.txt" produces 40 cubes, so it can solve mystery words that are 0  - 40 letters long provided that there are suitable matches.
+
+	The program includes a help button which activates when you press 'h'. Commands, cubes, and words should all be typed in lowercase. Have fun playing around with words and making your own puzzles.
