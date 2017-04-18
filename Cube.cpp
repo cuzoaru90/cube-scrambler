@@ -14,7 +14,6 @@
 Cube::Cube(char sides [])
 {
 	setSides(sides);
-	
 }
 
 void Cube::setSides(char x [])
@@ -27,10 +26,8 @@ void Cube::setSides(char x [])
 
 void Cube::showSides()
 {
-
 	for (int i = 0; i < 6; i++) {
 		std::cout << sides[i] << " ";
-		
 	}
 	
 }

@@ -14,16 +14,11 @@
 
 Match::Match(char x, int y)
 {
-
 	letterOfWord = x;
-	matchingCube = y;
-	
+	matchingCube = y;	
 }
 
 void Match::showMatches()
-{
-	
-std::cout << letterOfWord << " " << matchingCube <<  "\n";
-		
-	
+{	
+  std::cout << letterOfWord << " " << matchingCube <<  "\n";			
 }

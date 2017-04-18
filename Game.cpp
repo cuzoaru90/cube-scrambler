@@ -13,8 +13,7 @@ using namespace std;
 
 // Check mystery word to see if it can be solved by scrambler.
 void checkStrings(string x, vector<Cube> y, vector<Match> z)
-{
-	
+{	
 	int letterIndex = 0;
 	int matchedLetters = 0;
 	bool solutionFound = false;
@@ -27,52 +26,44 @@ void checkStrings(string x, vector<Cube> y, vector<Match> z)
 	// Traverse cubes to find matching letters for mystery word
 	for (int i = 0; i < y.size(); i++) {
 		
-		if (matchedLetters < x.length())
-		{
+		if (matchedLetters < x.length()){
 			probSolver.loopThroughCube(x.at(letterIndex), y[i]);
 		}
 		
-		if (probSolver.letterMatched == true)
-		{
+		if (probSolver.letterMatched == true){
 			//cout << "Matched " << x.at(letterIndex) << " with " << i + 1 << endl;
 			Match aMatch (x.at(letterIndex), i+1);
 			z.push_back(aMatch);
 			letterIndex++;
 			matchedLetters++;
-			probSolver.letterMatched = false;
-			
+			probSolver.letterMatched = false;	
 		}							
 		
 	} // End of traversal
 	
 	
 	// Determines if string can be solved or not.
-	if ( matchedLetters == x.length() )
-	{
-		
+	if ( matchedLetters == x.length() ){
 		cout << "Solution found with following matches:" << endl;
 		solutionFound = true;
+
 		for (int i = 0; i < z.size(); i++)
 		{
 			cout << "Letter " << z[i].letterOfWord << " and cube " << z[i].matchingCube << endl; // Displays matches
 		}
+
 	}
-	else {
-		
-		if (std::next_permutation(x.begin(), x.end()) == true)
-		{
-			
+	else {	
+		if (std::next_permutation(x.begin(), x.end()) == true){		
 			checkStrings(x, y, z);
 		}
 	}
 	
 	
-	if (std::next_permutation(x.begin(), x.end()) == false && solutionFound == false)
-	{
+	if (std::next_permutation(x.begin(), x.end()) == false && solutionFound == false){
 		cout << "Solution was not found" << endl;
 	}
-	
-	
+		
 }
 
 // Commands show up when user asks for help
@@ -82,9 +73,7 @@ void displayCommands()
 	cout << "c - Enter new cube" << endl << "a - Show all cubes" << endl;
 	cout << "w - Enter new word" << endl << "s - Solve problem" << endl;
 	cout << "q - Quit" << endl;
-	
 }
-
 
 
 
@@ -104,8 +93,7 @@ int main (int argc, char * const argv[]) {
 	
 	ifstream myfile (argv[1]);
 	
-	if (myfile.is_open())
-	{
+	if (myfile.is_open()){
 		while ( getline (myfile,line) )
 		{
 			char cube [6];
@@ -140,11 +128,8 @@ int main (int argc, char * const argv[]) {
 			cin >> theSides;
 			
 			Cube aCube(theSides);
-			cubes.push_back(aCube);
-			
-			
+			cubes.push_back(aCube);	
 		}
-		
 		else if ( command.compare("a") == 0)  {
 			
 			for (int i = 0; i < cubes.size(); i++) {
@@ -153,27 +138,18 @@ int main (int argc, char * const argv[]) {
 				cout << endl;
 			}
 			
-			cout << "Current word: " << word << "\n";
-			
+			cout << "Current word: " << word << "\n";	
 		}
-		
 		else if ( command.compare("w") == 0)  {
-			
 			cout << "Enter in a word to be solved:";
-			cin >> word;
-			
-		}
-		
-		else if ( command.compare("r") == 0)  {
-			
+			cin >> word;	
+		}		
+		else if ( command.compare("r") == 0)  {	
 			cubes.clear();
 			word = "";
-			cout << "Cubes deleted" << "\n";
-			
+			cout << "Cubes deleted" << "\n";	
 		}
-		
-		else if ( command.compare("s") == 0)  {
-			
+		else if ( command.compare("s") == 0)  {	
 			Solver probSolver;
 			probSolver.letterMatched = false;
 			

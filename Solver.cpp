@@ -20,8 +20,7 @@ void Solver::loopThroughCube(char x, Cube y)
 {
 	
 	for (int i = 0; i < 6; i++)
-		if ( x == y.sides[i] )
-		{
+		if ( x == y.sides[i] ){
 			letterMatched = true;
 			break;
 		}
